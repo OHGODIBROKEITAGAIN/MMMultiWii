@@ -1,2 +1,3 @@
 A Micro MWC variant of the MultiWii multicopter firmware based on Bened1kt's fork of the original MultiWii. Includes low battery notification using the on-board LED, the ever-popular horizon hack, and some optionally-enabled in-flight PID-tuning features that are currently pretty wacky but will improve in the future. Pushing this now so that folks can get at it, and I'm going to try to do a better job of crediting the folks who have helped me make and test these changes as time goes on.
 
+NOTE: MMMultiWii is pronounced thusly, for a triple-dose of the Multi: https://www.youtube.com/watch?v=v4I6mMilmio
