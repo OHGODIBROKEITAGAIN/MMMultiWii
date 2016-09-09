@@ -36,7 +36,7 @@
     //#define BI
     //#define TRI
     //#define QUADP
-    #define QUADX
+      #define QUADX
     //#define Y4
     //#define Y6
     //#define HEX6
@@ -59,20 +59,20 @@
     //#define MINTHROTTLE 1300 // for Turnigy Plush ESCs 10A
     //#define MINTHROTTLE 1120 // for Super Simple ESCs 10A
     //#define MINTHROTTLE 1064 // special ESC (simonk)
-    #define MINTHROTTLE 1050 // for brushed ESCs like ladybird
+      #define MINTHROTTLE 1050 // for brushed ESCs like ladybird
     //#define MINTHROTTLE 1150 // (*) (**)
 
   /****************************    Motor maxthrottle    *******************************/
     /* this is the maximum value for the ESCs at full power, this value can be increased up to 2000 */
-    #define MAXTHROTTLE 2020
+      #define MAXTHROTTLE 2020
 
   /****************************    Mincommand          *******************************/
     /* this is the value for the ESCs when they are not armed
        in some cases, this value must be lowered down to 900 for some specific ESCs, otherwise they failed to initiate */
-    #define MINCOMMAND  1000
+      #define MINCOMMAND  1000
 
   /**********************************    I2C speed   ************************************/
-    #define I2C_SPEED 100000L     //100kHz normal mode, this value must be used for a genuine WMP
+      #define I2C_SPEED 100000L     //100kHz normal mode, this value must be used for a genuine WMP
     //#define I2C_SPEED 400000L   //400kHz fast mode, it works only with some WMP clones
 
   /***************************    Internal i2c Pullups   ********************************/
@@ -156,7 +156,7 @@
       //#define MultiWii_32U4_SE_no_baro // Hextronik MultiWii_32U4_SE without the MS561101BA for more free flash-memory
       //#define Flyduino9DOF       // Flyduino 9DOF IMU MPU6050+HMC5883l
       //#define Nano_Plane         // Multiwii Plane version with tail-front LSM330 sensor http://www.radiosait.ru/en/page_5324.html
-      #define HK_MICRO_MWC 
+        #define HK_MICRO_MWC 
       
     /***************************    independent sensors    ********************************/
       /* leave it commented if you already checked a specific board above */
@@ -213,6 +213,9 @@
 
 	#define HEADFREE
 	#define HEADHOLD
+			/*
+			Can this safely be disabled for DeadBug?
+			*/
 
 /*************************************************************************************************/
 /*****************                                                                 ***************/
@@ -235,9 +238,15 @@
    /********************************    ARM/DISARM    *********************************/
    /* optionally disable stick combinations to arm/disarm the motors.
      * In most cases one of the two options to arm/disarm via TX stick is sufficient */
-    #define ALLOW_ARM_DISARM_VIA_TX_YAW
+      #define ALLOW_ARM_DISARM_VIA_TX_YAW
     //#define ALLOW_ARM_DISARM_VIA_TX_ROLL
 
+		/*
+		How do I arm/disarm via Tx switch? Would arming/disarming via multi-position switch be dangerous? Should probably implement this with the momentary switch. Might try 3-position switche setups in the future. Potential config: Disarmed/Armed(Angle|Horizon)/Armed(Acro|Passthrough)
+		
+		Better question: How would I set up the FC to accept an input from a Tx switch?	Currently I'm stuck on programming the switches to override or otherwise alter the Tx channel outputs...
+		*/
+		
     /********************************    SERVOS      *********************************/
     /* info on which servos connect where and how to setup can be found here
      * http://www.multiwii.com/wiki/index.php?title=Config.h#Servos_configuration
@@ -260,7 +269,11 @@
     // trigger interval can be changed via (*GUI*) or via AUX channel
     //#define CAMTRIG
     #define CAM_TIME_HIGH 1000   // the duration of HIGH state servo expressed in ms
-
+    			
+    			/*
+    			Can this safely be disabled for DeadBug?
+    			*/
+    			
   /***********************          Airplane                       ***********************/
     //#define USE_THROTTLESERVO // For use of standard 50Hz servo on throttle.
 
@@ -270,6 +283,10 @@
     
     //#define FLAPS                       // Traditional Flaps on SERVO3.
     //#define FLAPSPEED     3             // Make flaps move slowm Higher value is Higher Speed.
+
+			/*
+			Can this safely be disabled for DeadBug?
+			*/
 
   /***********************      Common for Heli & Airplane         ***********************/
 
@@ -304,6 +321,10 @@
        if inactive, throttle output will be treated as a motor output, so it can drive an ESC */
     //#define HELI_USE_SERVO_FOR_THROTTLE
 
+			/* 
+			Can this safely be disabled for DeadBug? 
+			*/
+			
   /***********************      your individual mixing     ***********************/
     /* if you want to override an existing entry in the mixing table, you may want to avoid editing the
      * mixTable() function for every version again and again. 
@@ -402,7 +423,7 @@
 
 
   /**************************************************************************************/
-  /********   Settings for ProMicro, Leonardo and other Atmega32u4 Boards     ***********/
+  /********   Settings for ProMicro, Leonardo and other Atmega32u4 Boards (i.e. DeadBug)    ***********/
   /**************************************************************************************/
 
     /*********************************    pin Layout     **********************************/
@@ -441,9 +462,9 @@
   /**************************************************************************************/
   /********                      override default pin assignments    ********************/
   /**************************************************************************************/
-
-  /* only enable any of this if you must change the default pin assignment, e.g. your board does not have a specific pin */
-  /* you may need to change PINx and PORTx plus #shift according to the desired pin! */
+  // only enable any of this if you must change the default pin assignment, e.g. your board does not have a specific pin
+  // you may need to change PINx and PORTx plus #shift according to the desired pin!
+  
   #define OVERRIDE_V_BATPIN                     'A0' // instead of A3    // Analog PIN 3
 
   //#define OVERRIDE_PSENSORPIN                 A2 // instead of A2    // Analog PIN 2
@@ -919,7 +940,7 @@
 	//#define EXT_MOTOR_4KHZ  // only 328 device
 
     /* some radios have not a neutral point centered on 1500. can be changed here */
-    #define MIDRC 1500
+    	#define MIDRC 1500
 
   /***********************         Servo Refreshrates            ***********************/
     /* Default 50Hz Servo refresh rate*/
